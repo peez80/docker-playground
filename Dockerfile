@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y \
     openssl \
     openjdk-8-jdk \
     iputils-ping \
+    vim \
+    less \
     && apt-get autoremove && apt-get clean
 
 
