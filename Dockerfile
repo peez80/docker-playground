@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     vim \
     less \
     curl \
+    apache2-utils \
     && apt-get autoremove && apt-get clean
 
 
