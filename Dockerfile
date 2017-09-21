@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     less \
     curl \
     apache2-utils \
+    net-tools \
     && apt-get autoremove && apt-get clean
 
 
