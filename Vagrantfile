@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
 
 
     config.vm.define "playground" do |host|
-      host.vm.box = "ubuntu/trusty64"
+      host.vm.box = "ubuntu/xenial64"
       #host.vm.network "private_network", ip: "192.168.33.201"
       host.vm.hostname = "playground"
 
@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
     config.vm.provision "shell", inline: <<-SHELL
         # install docker 1.12 beta
         curl -fsSL https://test.docker.com/ | sh
-        sudo usermod -aG docker vagrant
+        sudo usermod -aG docker ubuntu
 
         curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
         chmod +x /usr/local/bin/docker-compose
