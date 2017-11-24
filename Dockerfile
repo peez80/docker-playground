@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-MAINTAINER peez@stiffi.de
+LABEL maintainer="peez@stiffi.de"
 
 RUN apt-get update && apt-get install -y \
     openssl \
