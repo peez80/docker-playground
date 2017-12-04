@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     apache2-utils \
     net-tools \
     jhead \
+    traceroute \
     && apt-get autoremove && apt-get clean
 
 
