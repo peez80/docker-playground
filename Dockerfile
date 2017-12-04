@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:artful
 LABEL maintainer="peez@stiffi.de"
 
 RUN apt-get update && apt-get install -y \
