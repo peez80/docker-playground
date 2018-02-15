@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     net-tools \
     jhead \
     traceroute \
+    openssh-client \
     && apt-get autoremove && apt-get clean
 
 
