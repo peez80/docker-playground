@@ -1,0 +1,18 @@
+version: '3'
+services:
+  some-ssm-tunnel:
+    image: peez/playground:latest
+    container_name: mgu-ssh-tunnel-1883-42001
+    ports:
+      - 42001:8080
+    environment:
+      - "LOCAL_PORT=8080"
+      - "REMOTE_HOST=some_host"
+      - "REMOTE_PORT=9080"
+      - "SSH_USER=some_ssh_user"
+      - "SSH_HOST=some_ssh_host"
+      - "ID_FILE=/app/id_rsa_auth.pem"
+    volumes:
+      - "~/.ssh/id_rsa:/app/id_rsa_auth.pem:ro"
+    command: /scripts/start-ssh-tunnel.sh
+
