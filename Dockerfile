@@ -3,7 +3,7 @@ LABEL maintainer="peez@stiffi.de"
 
 RUN apt-get update && apt-get install -y \
     openssl \
-    openjdk-8-jdk \
+    openjdk-9-jdk \
     iputils-ping \
     vim \
     less \
