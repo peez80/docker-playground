@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     apt-transport-https \
     tcpdump \
     connect-proxy \
+    dnsutils \
     && apt-get autoremove && apt-get clean
 
 
