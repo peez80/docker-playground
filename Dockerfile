@@ -1,9 +1,9 @@
-FROM ubuntu:artful
+FROM ubuntu:bionic
 LABEL maintainer="peez@stiffi.de"
 
 RUN apt-get update && apt-get install -y \
     openssl \
-    openjdk-9-jdk \
+    openjdk-8-jdk \
     iputils-ping \
     vim \
     less \
@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     tcpdump \
     connect-proxy \
     dnsutils \
+    gnupg \
     && apt-get autoremove && apt-get clean
 
 
