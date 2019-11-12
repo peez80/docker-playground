@@ -4,15 +4,9 @@
 set -e
 
 
-echo "mkdir"
+echo "Preparing ~/.ssh from mounted ssh dir /app/ssh"
 mkdir -p ~/.ssh
-echo "cp"
 cp -r /app/ssh/* ~/.ssh
-
-echo "ssh-dir:"
-ls -lah ~/.ssh
-
-echo "chmod"
 chmod -R 600 ~/.ssh
 
 if [ -z "$SSH_PORT" ]; then
@@ -23,5 +17,5 @@ echo "ssh-keyscan"
 ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
 
 
-
+echo "Create Tunnel at $LOCAL_PORT:$SSH_HOST-$SSH_PORT:$REMOTE_HOST:$REMOTE_PORT"
 ssh -p $SSH_PORT -nNT -o GatewayPorts=true -L $LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT $SSH_USER@$SSH_HOST
