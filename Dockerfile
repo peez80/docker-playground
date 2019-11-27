@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     connect-proxy \
     dnsutils \
     gnupg \
+    telnet \
     && apt-get autoremove && apt-get clean
 
 
