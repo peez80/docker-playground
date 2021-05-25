@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 LABEL maintainer="peez@stiffi.de"
 
 RUN apt-get update && apt-get install -y \
@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y \
     dnsutils \
     gnupg \
     telnet \
-    && apt-get autoremove && apt-get clean
+    && apt-get autoremove && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 
 # INstall kubectl
