@@ -3,4 +3,4 @@ services:
 
 script:
   - DATE=$(date '+%Y%m%d%H%M%S')
-  - docker build -t peez/playground:$DATE
+  - docker build -t peez/playground:$DATE .
