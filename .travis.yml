@@ -2,4 +2,5 @@ services:
   - docker
 
 script:
-  - ./build.sh
+  - DATE=$(date '+%Y%m%d%H%M%S')
+  - docker build -t peez/playground:$DATE
