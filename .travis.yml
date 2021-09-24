@@ -4,3 +4,5 @@ services:
 script:
   - DATE=$(date '+%Y%m%d%H%M%S')
   - docker build -t peez/playground:$DATE .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push peez/playground:$DATE
