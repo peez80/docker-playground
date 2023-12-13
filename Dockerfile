@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     telnet \
     imagemagick \
+    borgbackup \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
