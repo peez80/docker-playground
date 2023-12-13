@@ -21,9 +21,16 @@ jobs:
       env:
         TAG: ${{ steps.date.outputs.date }}
       run: docker build . --file Dockerfile --tag peez/playground:$TAG
-    - name: Push the Docker image
+    - name: Docker Login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Push the Docker image - versioned
+      env:        
         TAG: ${{ steps.date.outputs.date }}
-      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD && docker push peez/playground:$TAG
+      run: docker push peez/playground:$TAG
+    - name: Push the Docker image - latest
+      env:
+        TAG: ${{ steps.date.outputs.date }}
+      run: docker tag peez/playground:$TAG peez/playground:latest && docker push peez/playground:latest
