@@ -22,12 +22,20 @@ RUN apt-get update && apt-get install -y \
     telnet \
     imagemagick \
     borgbackup \
+    unzip \
+    jq \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
 RUN apt-get update && apt-get install -y figlet toilet \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+
+# Install aws-cli
+RUN curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip \
+    && unzip awscliv2.zip \
+    && ./aws/install
 
 
 # INstall kubectl
@@ -38,6 +46,9 @@ RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add 
     && apt-get install -y kubectl \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+
+
 
 
 
