@@ -35,7 +35,8 @@ RUN apt-get update && apt-get install -y figlet toilet \
 # Install aws-cli
 RUN curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip \
     && unzip awscliv2.zip \
-    && ./aws/install
+    && ./aws/install \
+    && rm awscliv2.zip
 
 
 # INstall kubectl
