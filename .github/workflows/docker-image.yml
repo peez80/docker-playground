@@ -10,27 +10,26 @@ jobs:
 
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date '+%Y%m%d%H%M%S')"
-    - name: Build the Docker image
-      env:
-        TAG: ${{ steps.date.outputs.date }}
-      run: docker build . --file Dockerfile --tag peez/playground:$TAG
-    - name: Docker Login
-      env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    - name: Push the Docker image - versioned
-      env:        
-        TAG: ${{ steps.date.outputs.date }}
-      run: docker push peez/playground:$TAG
-    - name: Push the Docker image - latest
-      env:
-        TAG: ${{ steps.date.outputs.date }}
-      run: docker tag peez/playground:$TAG peez/playground:latest && docker push peez/playground:latest
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and push
+      uses: docker/build-push-action@v6
+      with:
+        platforms: linux/amd64,linux/arm64
+        push: true
+        image: peez/playground
+        tags: temptest
