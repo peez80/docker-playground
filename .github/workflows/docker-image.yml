@@ -31,4 +31,4 @@ jobs:
       with:
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: peez/playground:temptest, peez/playground:${{ steps.date.outputs.date }}
+        tags: peez/playground:latest, peez/playground:${{ steps.date.outputs.date }}
