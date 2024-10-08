@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:noble
 LABEL maintainer="peez@stiffi.de"
 
 RUN apt-get update && apt-get install -y \
@@ -21,16 +21,21 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     telnet \
     imagemagick \
-    borgbackup \
     unzip \
     jq \
     ncdu \
+    wget \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
 RUN apt-get update && apt-get install -y figlet toilet \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://github.com/borgbackup/borg/releases/download/1.4.0/borg-linux-glibc236 \
+    && mv borg-linux-glibc236 /usr/local/bin/borg \
+    && chmod 755 /usr/local/bin/borg \
+    && ln -s /usr/local/bin/borg /usr/local/bin/borgfs
 
 
 # Install aws-cli
