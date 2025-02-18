@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 #For Scanning via Smarthome
-RUN apt-get update && apt-get install -y img2pdf \
+RUN apt-get update && apt-get install -y img2pdf icc-profiles-free \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
