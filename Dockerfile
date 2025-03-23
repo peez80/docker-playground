@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     jq \
     ncdu \
     wget \
+    iperf3 \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
