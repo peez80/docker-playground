@@ -27,6 +27,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     iperf3 \
     mosquitto-clients \
+    par2 \
+    && apt-get upgrade \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
