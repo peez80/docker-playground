@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     telnet \
     imagemagick \
-    unzip \
+    unzip zip \
     jq \
     ncdu \
     wget \
