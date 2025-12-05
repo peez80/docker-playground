@@ -17,6 +17,8 @@ jobs:
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date '+%Y%m%d%H%M%S')"
+    - name: Output future docker image
+      run: echo "peez/playground:${{ steps.date.outputs.date }}"
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
     - name: Set up Docker Buildx
