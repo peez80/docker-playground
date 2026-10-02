@@ -32,8 +32,14 @@ RUN apt-get update && apt-get install -y \
     cloc \
     oathtool \
     uuid \
+    wget \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+#pishrink
+RUN wget https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh \
+    && chmod +x pishrink.sh \
+    && mv pishrink.sh /usr/local/bin
 
 #For Scanning via Smarthome
 RUN apt-get update && apt-get install -y img2pdf icc-profiles-free \
