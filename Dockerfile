@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
     uuid \
     wget \
     parted \
+    udev \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
