@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y \
 #pishrink
 RUN wget https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh \
     && chmod +x pishrink.sh \
-    && mv pishrink.sh /usr/local/bin
+    && mv pishrink.sh /usr/local/bin/pishrink
 
 #For Scanning via Smarthome
 RUN apt-get update && apt-get install -y img2pdf icc-profiles-free \
