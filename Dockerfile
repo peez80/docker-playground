@@ -33,6 +33,7 @@ RUN apt-get update && apt-get install -y \
     oathtool \
     uuid \
     wget \
+    parted \
     && apt-get autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
